@@ -1,0 +1,117 @@
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    background: white; 
+}
+
+header { 
+    position: sticky; 
+    top: 0; 
+    background: white;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+.logo { 
+    font-size: 24px; 
+    font-weight: bold; 
+    margin-left: -120px;
+    overflow: hidden;
+   
+}
+
+.categories {
+    display: flex;
+    gap: 10px; 
+}
+
+.category-btn { 
+    padding: 5px 10px;
+    border: none;
+    background: none; 
+    cursor: pointer; 
+}
+
+.dropdown-menu { 
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc; 
+    min-width: 100px;
+}
+
+.category-dropdown:hover .dropdown-menu {
+    display: block; 
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.search input { 
+    padding: 5px;
+    width: 500px;
+    height: 40px;
+    background-color: whitesmoke;
+} 
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 5px; 
+    border: none; 
+    background: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.badge { 
+    position: absolute; 
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white; 
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+
+.div2 {
+    /* layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* sizing */
+    width: 100%;                /* full width of parent */
+    aspect-ratio: 16 / 9;       /* maintains 16:9 ratio */
+    min-height: 500px;          /* optional: minimum height */
+    box-sizing: border-box;
+    overflow: hidden;
+
+    /* diagnostic styles (remove for production) */
+    background-color: rgb(237, 12, 12);
+    border: 10px solid rgb(247, 242, 242);
+}
+ 
+.div2 img {
+    width: 100%;                /* fill container width */
+    height: 100%;               /* fill container height */
+    object-fit: cover;          /* cover entire area, may crop */
+    
+}
