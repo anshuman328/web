@@ -43,6 +43,7 @@ div {
     box-sizing: border-box;
 }
 
+/* Hover Effect */
 div:hover {
     background-color: rgba(217, 205, 37, 1);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
