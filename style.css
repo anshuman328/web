@@ -121,3 +121,41 @@ header {
     object-fit: cover;          /* cover entire area, may crop */
     
 }
+
+.gender-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0 40px;
+    padding: 0 16px;
+}
+
+.gender-button {
+    min-width: 220px;
+    padding: 12px 22px;
+    border: 1px solid #111;
+    background: #ffffff;
+    color: #111;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gender-button:hover {
+    background: #111;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .gender-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .gender-button {
+        width: 100%;
+        max-width: 240px;
+    }
+}
