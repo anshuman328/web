@@ -29,7 +29,7 @@ body {
     padding: 20px;
 }
 
-div {
+div:not(.back-buttons) {
     background-color:rgba(217, 205, 37, 0.848); 
     width: 315px;
     height: 315px;
@@ -44,7 +44,7 @@ div {
 }
 
 /* Hover Effect */
-div:hover {
+div:not(.back-buttons):hover {
     background-color: rgba(217, 205, 37, 1);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transform: scale(1.05);
@@ -56,4 +56,43 @@ div img {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+ /* back button to the main page */
+.back-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0 40px;
+    padding: 0 16px;
+}
+
+.backbuttons {
+    min-width: 220px;
+    padding: 12px 22px;
+    border: 1px solid #111;
+    background: #ffffff;
+    color: #111;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.backbuttons:hover {
+    background: #111;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .back-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .backbutton {
+        width: 100%;
+        max-width: 240px;
+    }
 }
