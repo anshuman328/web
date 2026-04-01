@@ -110,7 +110,6 @@ header {
     box-sizing: border-box;
     overflow: hidden;
 
-    /* diagnostic styles (remove for production) */
     background-color: rgb(237, 12, 12);
     border: 10px solid rgb(247, 242, 242);
 }
@@ -159,3 +158,4 @@ header {
         max-width: 240px;
     }
 }
+

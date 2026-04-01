@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Thread — Simple Footer</title>
+
+  <!-- Google Font — change "Playfair+Display" to any font you like -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- External Footer Stylesheet -->
+  <link rel="stylesheet" href="footer/footer.css" />
+</head>
+<body>
+
+
+  <!-- =============================================
+       HTML STRUCTURE
+       Sections:
+         1. .footer__top      — Logo + tagline
+         2. .footer__divider  — Horizontal line
+         3. .footer__columns  — Help & Contact
+         4. .footer__bottom   — Copyright bar
+  ============================================= -->
+
+  <footer class="footer">
+
+    <!-- ── 1. LOGO + TAGLINE ──────────────────────
+         CUSTOMIZE:
+         - Change "Design Thread" to your brand name
+         - Change tagline text below the logo
+         - To use an image logo instead of text:
+           Replace <span class="footer__logo"> with
+           <img src="your-logo.png" alt="Design Thread" class="footer__logo" style="height:40px;" />
+    ─────────────────────────────────────────── -->
+    <div class="footer__top">
+      <span class="footer__logo">Design Thread</span>
+      <p class="footer__tagline">Fashion crafted with intention</p>
+      <!-- CUSTOMIZE: Change tagline above ↑ -->
+    </div>
+
+
+    <!-- ── 2. DIVIDER LINE ─────────────────────── -->
+    <hr class="footer__divider" />
+
+
+    <!-- ── 3. HELP & CONTACT COLUMNS ────────────
+         CUSTOMIZE:
+         - Add/remove <li> items in each column
+         - Add a 3rd column by copying a .footer__col
+           block and updating grid-template-columns
+           to repeat(3, 1fr) in the CSS
+    ─────────────────────────────────────────── -->
+    <div class="footer__columns">
+
+      <!-- Help Column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Help</h4>
+        <!-- CUSTOMIZE: Add or remove links below ↓ -->
+        <ul>
+          <li><a href="#">Shipping & Delivery</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Track Your Order</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Contact</h4>
+
+        <!-- CUSTOMIZE: Replace with your actual contact details ↓ -->
+
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Email</span>
+          <a href="mailto:hello@designthread.com" class="footer__contact-value">
+            hello@designthread.com
+          </a>
+        </div>
+
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Phone</span>
+          <a href="tel:+911234567890" class="footer__contact-value">
+            +91 12345 67890
+          </a>
+        </div>
+
+        <div class="footer__contact-item">
+          <span class="footer__contact-label">Address</span>
+          <span class="footer__contact-value">
+            42 Studio Lane, Hauz Khas<br />New Delhi, 110016
+          </span>
+          <!-- CUSTOMIZE: Replace address above ↑ -->
+        </div>
+
+      </div>
+
+    </div><!-- end .footer__columns -->
+
+
+    <!-- ── 4. COPYRIGHT BAR ───────────────────────
+         CUSTOMIZE:
+         - Update the year and brand name
+         - Add or remove legal links
+    ─────────────────────────────────────────── -->
+    <div class="footer__bottom">
+
+      <p class="footer__copyright">
+        <!-- CUSTOMIZE: Update year below ↓ -->
+        &copy; 2025 Design Thread. All rights reserved.
+      </p>
+
+      <div class="footer__legal">
+        <!-- CUSTOMIZE: Add/remove legal links below ↓ -->
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>

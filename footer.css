@@ -1,0 +1,246 @@
+/* ─────────────────────────────────────────────
+   1. CSS VARIABLES
+   Customize your brand here — change colors,
+   fonts, and spacing in one place.
+───────────────────────────────────────────── */
+:root {
+  /* Brand Colors */
+  --color-bg: #1c1c1c;           /* Footer background */
+  --color-text: #d4cfc9;         /* Default text color */
+  --color-heading: #ffffff;      /* Column headings */
+  --color-accent: #c8a96e;       /* Gold accent — links, logo, divider */
+  --color-muted: #6b6560;        /* Muted text (copyright, placeholders) */
+  --color-border: rgba(255,255,255,0.08); /* Divider / border color */
+
+  /* Typography */
+  --font-brand: 'Playfair Display', serif;  /* Logo font */
+  --font-body: 'DM Sans', sans-serif;        /* Everything else */
+
+  /* Spacing */
+  --section-padding: 3.5rem 6%;   /* Top/bottom & side padding of footer */
+  --col-gap: 3rem;                /* Gap between columns */
+}
+
+
+/* ─────────────────────────────────────────────
+   2. RESET
+   Basic reset so nothing inherits weird browser
+   defaults.
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Just for demo — remove from your project */
+  background: #f0ede8;
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+a {
+  text-decoration: none; /* Remove underlines from all links */
+}
+
+ul {
+  list-style: none; /* Remove bullet points */
+}
+
+
+/* ─────────────────────────────────────────────
+   3. .footer — MAIN WRAPPER
+   The outermost container. Controls background,
+   font, and text color for the whole footer.
+───────────────────────────────────────────── */
+.footer {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+
+/* ─────────────────────────────────────────────
+   4. .footer__top — LOGO + TAGLINE
+   Top section: brand logo on the left,
+   short tagline underneath it.
+───────────────────────────────────────────── */
+.footer__top {
+  padding: var(--section-padding);
+  padding-bottom: 2rem; /* Less bottom padding since divider follows */
+}
+
+/* ── Logo text ──
+   Uses your brand font. Change font-size,
+   letter-spacing, or color to match your brand. */
+.footer__logo {
+  font-family: var(--font-brand);
+  font-size: 1.8rem;        /* CUSTOMIZE: logo text size */
+  font-weight: 600;
+  color: var(--color-heading);
+  letter-spacing: 0.04em;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Gold dot accent after the logo ──
+   Remove .footer__logo::after block if you don't want it */
+.footer__logo::after {
+  content: '.';
+  color: var(--color-accent); /* Gold dot */
+}
+
+/* ── Tagline under logo ── */
+.footer__tagline {
+  font-size: 0.8rem;              /* CUSTOMIZE: tagline size */
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;      /* Remove if you want normal case */
+}
+
+
+/* ─────────────────────────────────────────────
+   5. .footer__divider — HORIZONTAL LINE
+   Thin line separating logo from link columns.
+   Change border-color in :root to restyle it.
+───────────────────────────────────────────── */
+.footer__divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0 6%; /* Matches side padding of footer */
+}
+
+
+/* ─────────────────────────────────────────────
+   6. .footer__columns — HELP & CONTACT COLUMNS
+   Grid of columns. Currently 2 columns (Help +
+   Contact). Add more <div class="footer__col">
+   blocks to the HTML to add more columns.
+───────────────────────────────────────────── */
+.footer__columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* CUSTOMIZE: change 2 to 3 or 4 for more columns */
+  gap: var(--col-gap);
+  padding: var(--section-padding);
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+/* ── Column heading (e.g. "Help", "Contact") ── */
+.footer__col-title {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);    /* Gold heading color */
+  margin-bottom: 1.2rem;
+}
+
+/* ── Links inside each column ── */
+.footer__col ul li {
+  margin-bottom: 0.65rem;
+}
+
+.footer__col ul li a {
+  color: var(--color-text);
+  font-size: 0.86rem;
+  transition: color 0.2s;        /* Smooth color change on hover */
+}
+
+/* ── Link hover effect ──
+   Change var(--color-accent) to any color you want */
+.footer__col ul li a:hover {
+  color: var(--color-accent);
+}
+
+/* ── Contact info (address, phone, email) ──
+   Same style as links but not clickable text */
+.footer__contact-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.9rem;
+}
+
+/* ── Label above contact value (e.g. "Email") ── */
+.footer__contact-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.15rem;
+}
+
+/* ── Contact value (the actual email/phone/address) ── */
+.footer__contact-value {
+  color: var(--color-text);
+  font-size: 0.86rem;
+  transition: color 0.2s;
+}
+
+.footer__contact-value:hover {
+  color: var(--color-accent); /* Hover effect on email/phone links */
+}
+
+
+/* ─────────────────────────────────────────────
+   7. .footer__bottom — COPYRIGHT BAR
+   Thin bar at the very bottom. Contains
+   copyright text and optional links.
+───────────────────────────────────────────── */
+.footer__bottom {
+  border-top: 1px solid var(--color-border);
+  padding: 1.2rem 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ── Copyright text ── */
+.footer__copyright {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Legal links (Privacy, Terms) ── */
+.footer__legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer__legal a {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+
+.footer__legal a:hover {
+  color: var(--color-accent);
+}
+
+
+/* ─────────────────────────────────────────────
+   8. RESPONSIVE — MOBILE
+   On screens smaller than 560px, columns
+   stack vertically instead of side by side.
+───────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .footer__columns {
+    grid-template-columns: 1fr; /* Stack columns on mobile */
+    gap: 2rem;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
