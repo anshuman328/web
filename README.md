@@ -37,3 +37,27 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 - **Navbar**: Optimized for e-commerce with centered search and quick-access icons.
 - **Hover Effects**: Products in [style3.css](style3.css) feature 1.05x scaling and box shadows on hover for better user engagement.
 - **Image Handling**: Uses `object-fit: cover` and `contain` to ensure product images maintain aspect ratios across different screen sizes.
+
+## 📝 Footer Component
+
+A reusable, fully customizable footer component is included in the `footer/` folder:
+
+- **[footer/footer.css](footer/footer.css)**: Contains all footer styling with CSS variables for easy customization:
+  - Brand colors (gold accent, dark background)
+  - Typography variables (Playfair Display & DM Sans fonts)
+  - Responsive design for mobile devices
+  
+- **[footer.html](footer.html)**: Standalone footer demo page with:
+  - Logo and tagline section
+  - Help column with shipping, returns, and FAQ links
+  - Contact column with email, phone, and address
+  - Copyright bar with legal links
+
+The footer is fully integrated into [code.html](code.html) and can be easily customized by editing the CSS variables in `footer/footer.css`.
+
+## 📞 Footer Details
+
+- **Email**: hello@designthread.com
+- **Phone**: +91 12345 67890
+- **Address**: 42 Studio Lane, Hauz Khas, New Delhi, 110016
+
