@@ -1,7 +1,5 @@
 /* ─────────────────────────────────────────────
    1. CSS VARIABLES
-   Customize your brand here — change colors,
-   fonts, and spacing in one place.
 ───────────────────────────────────────────── */
 :root {
   /* Brand Colors */
@@ -23,9 +21,7 @@
 
 
 /* ─────────────────────────────────────────────
-   2. RESET
-   Basic reset so nothing inherits weird browser
-   defaults.
+   2. RESET.
 ───────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -54,8 +50,6 @@ ul {
 
 /* ─────────────────────────────────────────────
    3. .footer — MAIN WRAPPER
-   The outermost container. Controls background,
-   font, and text color for the whole footer.
 ───────────────────────────────────────────── */
 .footer {
   background: var(--color-bg);
@@ -68,8 +62,6 @@ ul {
 
 /* ─────────────────────────────────────────────
    4. .footer__top — LOGO + TAGLINE
-   Top section: brand logo on the left,
-   short tagline underneath it.
 ───────────────────────────────────────────── */
 .footer__top {
   padding: var(--section-padding);
@@ -107,8 +99,6 @@ ul {
 
 /* ─────────────────────────────────────────────
    5. .footer__divider — HORIZONTAL LINE
-   Thin line separating logo from link columns.
-   Change border-color in :root to restyle it.
 ───────────────────────────────────────────── */
 .footer__divider {
   border: none;
@@ -119,9 +109,7 @@ ul {
 
 /* ─────────────────────────────────────────────
    6. .footer__columns — HELP & CONTACT COLUMNS
-   Grid of columns. Currently 2 columns (Help +
-   Contact). Add more <div class="footer__col">
-   blocks to the HTML to add more columns.
+   Grid of columns.
 ───────────────────────────────────────────── */
 .footer__columns {
   display: grid;
@@ -154,8 +142,7 @@ ul {
   transition: color 0.2s;        /* Smooth color change on hover */
 }
 
-/* ── Link hover effect ──
-   Change var(--color-accent) to any color you want */
+/* /* ── Link hover effect ── */
 .footer__col ul li a:hover {
   color: var(--color-accent);
 }
@@ -191,8 +178,6 @@ ul {
 
 /* ─────────────────────────────────────────────
    7. .footer__bottom — COPYRIGHT BAR
-   Thin bar at the very bottom. Contains
-   copyright text and optional links.
 ───────────────────────────────────────────── */
 .footer__bottom {
   border-top: 1px solid var(--color-border);
@@ -230,8 +215,6 @@ ul {
 
 /* ─────────────────────────────────────────────
    8. RESPONSIVE — MOBILE
-   On screens smaller than 560px, columns
-   stack vertically instead of side by side.
 ───────────────────────────────────────────── */
 @media (max-width: 560px) {
   .footer__columns {
