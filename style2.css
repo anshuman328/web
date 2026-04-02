@@ -24,13 +24,14 @@
 
 body {
     display: flex;
+    flex-direction: row !important;
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
     padding: 20px;
 }
 
-div:not(.back-buttons) {
+div:not(.back-buttons):not(.footer):not(.footer__top):not(.footer__columns):not(.footer__col):not(.footer__contact-item) {
     background-color:rgba(217, 205, 37, 0.848); 
     width: 315px;
     height: 315px;
@@ -44,7 +45,7 @@ div:not(.back-buttons) {
     box-sizing: border-box;
 }
 
-div:not(.back-buttons):hover {
+div:not(.back-buttons):not(.footer):not(.footer__top):not(.footer__columns):not(.footer__col):not(.footer__contact-item):hover {
     background-color: rgba(217, 205, 37, 1);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transform: scale(1.05);
@@ -66,6 +67,8 @@ div img {
     gap: 16px;
     margin: 20px 0 40px;
     padding: 0 16px;
+    width: 100%;
+    flex-basis: 100%;
 }
 
 .backbuttons {
@@ -87,7 +90,7 @@ div img {
 
 @media (max-width: 600px) {
     .back-buttons {
-        flex-direction: column;
+        flex-direction: center;
         gap: 12px;
     }
 
@@ -95,4 +98,11 @@ div img {
         width: 100%;
         max-width: 240px;
     }
+}
+
+/* Footer styling - full width below images */
+.footer {
+    width: 100%;
+    flex-basis: 100%;
+    order: 999;
 }
