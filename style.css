@@ -121,6 +121,7 @@ header {
     
 }
 
+/* button sections for display   */
 .gender-buttons {
     display: flex;
     justify-content: center;
@@ -147,6 +148,7 @@ header {
     color: #fff;
 }
 
+/* adjustments for smaller screens */
 @media (max-width: 600px) {
     .gender-buttons {
         flex-direction: column;
