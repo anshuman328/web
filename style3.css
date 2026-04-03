@@ -99,8 +99,7 @@ div img {
         max-width: 240px;
     }
 }
-
-/* Footer styling - full width below images */
+/* footer styles that shown below images */
 .footer {
     width: 100%;
     flex-basis: 100%;
