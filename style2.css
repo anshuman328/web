@@ -85,6 +85,7 @@ div img {
 
 /* Buy Button Styles */
 .buy-btn {
+    display: block;
     width: 100%;
     padding: 12px 10px;
     background-color: #111;
@@ -95,6 +96,8 @@ div img {
     cursor: pointer;
     transition: all 0.2s ease;
     box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
 }
 
 .buy-btn:hover {
