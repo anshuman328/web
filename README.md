@@ -24,6 +24,7 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 
 - **HTML5**: Semantic structure for web pages.
 - **CSS3**: Layouts using Flexbox, Grid, and custom animations.
+- **JavaScript**: Interactive features and dynamic functionality.
 - **External Assets**: Integrated high-quality product imagery.
 
 ## 🖥️ Getting Started
@@ -37,6 +38,17 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 - **Navbar**: Optimized for e-commerce with centered search and quick-access icons.
 - **Hover Effects**: Products in [style3.css](style3.css) feature 1.05x scaling and box shadows on hover for better user engagement.
 - **Image Handling**: Uses `object-fit: cover` and `contain` to ensure product images maintain aspect ratios across different screen sizes.
+
+## ⚙️ JavaScript Functionality
+
+- **[app.js](app.js)**: Main JavaScript file that handles:
+  - Interactive features and DOM manipulation
+  - Event listeners for user interactions
+  - Dynamic content loading and product detail displays
+  - Form handling and data processing
+  - Shopping cart functionality and state management
+
+**Usage**: The `app.js` file is linked in HTML files to provide interactivity and enhance user experience across all pages.
 
 ## 📝 Footer Component
 
