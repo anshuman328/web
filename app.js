@@ -4,6 +4,9 @@
 // This file contains all the JavaScript logic for the Design Thread e-commerce website
 // Organized into logical sections for better understanding and maintenance
 
+// Global variable to store selected size
+let selectedSize = null;
+
 
 // ========================================
 // 1. DATABASE - PRODUCT INFORMATION
@@ -335,6 +338,12 @@ function displayProductDetails(product) {
  * Displays confirmation message to user
  */
 function addToCart() {
+    // Get selected size
+    if (!selectedSize) {
+        alert("Please select a size before adding to cart!");
+        return;
+    }
+    
     // Get selected quantity from input field
     const quantity = document.getElementById('quantity').value;
     
@@ -343,8 +352,8 @@ function addToCart() {
     
     // Verify product exists and add to cart
     if (product) {
-        // Show confirmation alert
-        alert(`Added ${quantity} ${product.name}(s) to cart!`);
+        // Show confirmation alert with size and quantity
+        alert(`Added ${quantity} ${product.name}(s) in size ${selectedSize} to cart!`);
         
         // TODO: Future enhancement - Save to actual cart system
         // This could save to localStorage, send to server, or update cart UI
@@ -361,6 +370,27 @@ function addToCart() {
 // Sets up event handlers and initializes the page
 
 /**
+ * Initialize size selection buttons
+ * Adds click event listeners to all size buttons
+ */
+function initializeSizeSelection() {
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    
+    sizeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            sizeButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Store selected size
+            selectedSize = this.getAttribute('data-size');
+        });
+    });
+}
+
+/**
  * Initialize page on load
  * Loads product details when the page first loads (on product detail pages)
  */
@@ -368,6 +398,8 @@ window.addEventListener('load', () => {
     const product = getProductData();
     if (product) {
         displayProductDetails(product);
+        // Initialize size selection after product details are loaded
+        initializeSizeSelection();
     } else {
         console.log("No product data found in URL parameters");
     }
