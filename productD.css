@@ -59,7 +59,7 @@
             margin: 10px 0;
             font-size: 14px;
         }
-
+/* Size Selector buttons */
         .size-selector {
             margin: 20px 0;
         }
@@ -97,7 +97,8 @@
             background-color: #111;
             color: #fff;
         }
-
+        
+/* Quantity Selector */
         .quantity-selector {
             display: flex;
             align-items: center;
