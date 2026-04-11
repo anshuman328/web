@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Design Thread</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-color: #0d0a1a;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .brand {
+      position: fixed;
+      top: 30px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .brand p {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .brand h1 {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 8px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 20px;
+      padding: 40px 32px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      animation: fadeUp 0.7s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card h2 {
+      font-size: 22px;
+      font-weight: 500;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .card .sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 18px;
+      outline: none;
+      transition: border 0.2s, background 0.2s;
+    }
+
+    input::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    input:focus {
+      border-color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.13);
+    }
+
+    .forgot {
+      text-align: right;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      margin-top: -12px;
+      margin-bottom: 22px;
+    }
+
+    .forgot:hover {
+      color: #fff;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      border: 1px solid rgba(249, 244, 244, 0.3);
+      background: transparent;
+      color: rgb(27, 26, 26);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-login:hover {
+      background: #ffffff;
+      color: #1a1040;
+      border-color: #ffffff;
+      transform: scale(1.02);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .divider span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .btn-google {
+      width: 100%;
+      padding: 11px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-google:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .signup {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 20px;
+    }
+
+    .signup a {
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .signup a:hover {
+      color: #fff;
+    }
+
+  </style>
+</head>
+<body>
+
+  <canvas id="canvas"></canvas>
+
+  <div class="brand">
+    <p>Welcome to</p>
+    <h1>Design Thread</h1>
+  </div>
+
+  <div class="card">
+    <h2>Sign in</h2>
+    <p class="sub">Good to see you again</p>
+
+    <label>Email address</label>
+    <input type="email" id="email" placeholder="you@example.com" />
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter your password" />
+
+    <p class="forgot">Forgot password?</p>
+
+    <button class="btn-login" onclick="handleLogin()">Login</button>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span>or</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <button class="btn-google">
+      <svg width="16" height="16" viewBox="0 0 48 48">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+      </svg>
+      Continue with Google
+    </button>
+
+    <p class="signup">Don't have an account? <a href="signup.html">Sign up</a></p>
+  </div>
+
+  <script>
+
+    // Particle animation
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    const dots = [];
+    for (let i = 0; i < 70; i++) {
+      dots.push({
+        x:  Math.random() * canvas.width,
+        y:  Math.random() * canvas.height,
+        r:  Math.random() * 2 + 0.8,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: (Math.random() - 0.5) * 0.4,
+        a:  Math.random() * 0.4 + 0.15
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < dots.length; i++) {
+        for (let j = i + 1; j < dots.length; j++) {
+          const dx   = dots[i].x - dots[j].x;
+          const dy   = dots[i].y - dots[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.strokeStyle = `rgba(200,190,255,${ 0.12 * (1 - dist / 110) })`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+
+      dots.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(220,215,255,${p.a})`;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    // Login handler
+    function handleLogin() {
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      if (!email || !password) {
+        alert('Please fill in all fields');
+        return;
+      }
+      // Replace below with Firebase later
+      alert('Login successful!');
+      window.location.href = 'index.html';
+    }
+
+  </script>
+
+</body>
+</html>
