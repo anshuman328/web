@@ -84,7 +84,7 @@ header {
     cursor: pointer;
     position: relative;
     text-decoration: none;
-    color: inherit;
+    color: inherit; /* Keep same color as nearby text. */
 }
 
 .badge { 

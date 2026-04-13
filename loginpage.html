@@ -327,11 +327,20 @@
         alert('Please fill in all fields');
         return;
       }
+
+
       // Replace below with Firebase later
+      // Temporary demo flow:
+      // 1) mark user as logged in for this browser session
+      // 2) show success message, then send user to the main page
       sessionStorage.setItem('isLoggedIn', 'true');
       alert('Login successful!');
       window.location.href = 'code.html';
     }
+
+    
+
+
 
   </script>
 
