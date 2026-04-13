@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="./style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./footer.css">
+
+  <script>
+    // Block direct access until user logs in.
+    if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.replace('./loginpage.html');
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -17,7 +24,7 @@
         <input type="search" placeholder="Search for products" >
       </div>
       <div class="actions">
-        <button class="action-btn">👤</button>
+        <a href="./loginpage.html" class="action-btn" aria-label="Login">👤</a>
         <button class="action-btn">❤️ <span class="badge">2</span></button>
         <button class="action-btn">🛒 <span class="badge">3</span></button>
       </div>
