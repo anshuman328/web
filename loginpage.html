@@ -258,7 +258,43 @@
     <p class="signup">Don't have an account? <a href="signup.html">Sign up</a></p>
   </div>
 
-  <script>
+  <script type="module">
+    // Firebase imports
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyASlqnPSK0zcv4rjcxGvVU4kOAgpZDRNPY",
+      authDomain: "design-thread-92e99.firebaseapp.com",
+      projectId: "design-thread-92e99",
+      storageBucket: "design-thread-92e99.firebasestorage.app",
+      messagingSenderId: "910872335448",
+      appId: "1:910872335448:web:b7de29e63d508853c7262d"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Make handleLogin accessible globally
+    window.handleLogin = async function () {
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      if (!email || !password) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      try {
+        // Sign in with Firebase
+        await signInWithEmailAndPassword(auth, email, password);
+        alert('Login successful!');
+        window.location.href = 'code.html';
+      } catch (error) {
+        alert('Login failed: ' + error.message);
+      }
+    };
 
     // Particle animation
     const canvas = document.getElementById('canvas');
@@ -318,30 +354,6 @@
     }
 
     draw();
-
-    // Login handler
-    function handleLogin() {
-      const email    = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-      if (!email || !password) {
-        alert('Please fill in all fields');
-        return;
-      }
-
-
-      // Replace below with Firebase later
-      // Temporary demo flow:
-      // 1) mark user as logged in for this browser session
-      // 2) show success message, then send user to the main page
-      sessionStorage.setItem('isLoggedIn', 'true');
-      alert('Login successful!');
-      window.location.href = 'code.html';
-    }
-
-    
-
-
-
   </script>
 
 </body>
