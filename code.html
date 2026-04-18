@@ -8,9 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./footer.css">
   
-  <!-- Auth Guard - Instant redirect -->
+  <!-- Auth Guard - Show login page if session ended -->
   <script>
-    if (localStorage.getItem('dtLoggedIn') !== '1') {
+    if (sessionStorage.getItem('dtLoggedIn') !== '1') {
       window.location.href = './loginpage.html';
     }
   </script>
@@ -28,7 +28,7 @@
         <input type="search" placeholder="Search for products" >
       </div>
       <div class="actions">
-        <a href="./loginpage.html" class="action-btn" aria-label="Login">👤</a>
+        <button class="action-btn" onclick="handleLogout()" aria-label="Logout" title="Logout">🚪</button>
         <button class="action-btn">❤️ <span class="badge">2</span></button>
         <button class="action-btn">🛒 <span class="badge">3</span></button>
       </div>
@@ -46,6 +46,15 @@
       <a href="code3.html" class="gender-button">For Women</a>
     </div>
   </main>
+  
+
+  <!-- Logout Handler -->
+  <script>
+    function handleLogout() {
+      sessionStorage.removeItem('dtLoggedIn');
+      window.location.href = './loginpage.html';
+    }
+  </script>
 
   <!-- Category Navigation Handler -->
   <script src="./category-links.js" defer></script>

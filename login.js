@@ -37,14 +37,14 @@ window.handleLogin = async function () {
     // Sign in with Firebase
     await signInWithEmailAndPassword(auth, email, password);
     console.log("Firebase login successful!");
-    localStorage.setItem('dtLoggedIn', '1');
-    console.log("dtLoggedIn flag set. Stored value:", localStorage.getItem('dtLoggedIn'));
+    sessionStorage.setItem('dtLoggedIn', '1');
+    console.log("dtLoggedIn flag set. Stored value:", sessionStorage.getItem('dtLoggedIn'));
     alert('Login successful!');
     console.log("Redirecting to code.html");
     window.location.href = 'code.html';
   } catch (error) {
     console.log("Firebase login failed:", error.message);
-    localStorage.removeItem('dtLoggedIn');
+    sessionStorage.removeItem('dtLoggedIn');
     alert('Login failed: ' + error.message);
   }
 };
