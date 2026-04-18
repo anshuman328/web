@@ -21,8 +21,11 @@ const auth = getAuth(app);
 
 // Login function - called when Login button is clicked
 window.handleLogin = async function () {
+  console.log("Login button clicked");
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value.trim();
+  
+  console.log("Email:", email, "Password:", password);
   
   if (!email || !password) {
     alert('Please fill in all fields');
@@ -30,12 +33,17 @@ window.handleLogin = async function () {
   }
 
   try {
+    console.log("Attempting Firebase login...");
     // Sign in with Firebase
     await signInWithEmailAndPassword(auth, email, password);
+    console.log("Firebase login successful!");
     localStorage.setItem('dtLoggedIn', '1');
+    console.log("dtLoggedIn flag set. Stored value:", localStorage.getItem('dtLoggedIn'));
     alert('Login successful!');
+    console.log("Redirecting to code.html");
     window.location.href = 'code.html';
   } catch (error) {
+    console.log("Firebase login failed:", error.message);
     localStorage.removeItem('dtLoggedIn');
     alert('Login failed: ' + error.message);
   }
