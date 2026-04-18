@@ -8,14 +8,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./footer.css">
   
-
-
-<!-- Firebase Authentication Guard -->
-  <script type="module" src="./auth-guard.js"></script>
+  <!-- Auth Guard - Instant redirect -->
+  <script>
+    if (localStorage.getItem('dtLoggedIn') !== '1') {
+      window.location.href = './loginpage.html';
+    }
+  </script>
 
 
 
 </head>
+
 <body>
   <header>
      <nav class="navbar">
