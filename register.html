@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Design Thread</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-color: #0d0a1a;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .brand {
+      position: fixed;
+      top: 30px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .brand p {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .brand h1 {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 8px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 20px;
+      padding: 40px 32px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      animation: fadeUp 0.7s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card h2 {
+      font-size: 22px;
+      font-weight: 500;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .card .sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 13px;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(249, 244, 244, 0.3);
+      border-radius: 10px;
+      background: transparent;
+      color: rgb(249, 244, 244);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #ffffff;
+      color: #1a1040;
+      border-color: #ffffff;
+      transform: scale(1.02);
+    }
+
+    button:active {
+      transform: scale(0.99);
+    }
+
+    .link-text {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 16px;
+    }
+
+    .link-text a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .link-text a:hover {
+      color: #fff;
+    }
+
+    .password-requirements {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .password-requirements ul {
+      margin-left: 16px;
+      margin-top: 6px;
+    }
+
+    .password-requirements li {
+      margin-bottom: 3px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <canvas></canvas>
+
+  <div class="brand">
+    <p>Welcome to</p>
+    <h1>DESIGN THREAD</h1>
+  </div>
+
+  <div class="card">
+    <h2>Create Account</h2>
+    <p class="sub">Join us to explore our collection</p>
+
+    <label for="register-email">Email Address</label>
+    <input 
+      type="email" 
+      id="register-email" 
+      placeholder="Enter your email"
+      autocomplete="email"
+    />
+
+    <label for="register-password">Password</label>
+    <input 
+      type="password" 
+      id="register-password" 
+      placeholder="Create a password"
+      autocomplete="new-password"
+    />
+
+    <label for="confirm-password">Confirm Password</label>
+    <input 
+      type="password" 
+      id="confirm-password" 
+      placeholder="Confirm your password"
+      autocomplete="new-password"
+    />
+
+    <div class="password-requirements">
+      <strong>Password Requirements:</strong>
+      <ul>
+        <li>At least 6 characters long</li>
+        <li>Use a mix of letters and numbers</li>
+      </ul>
+    </div>
+
+    <button onclick="handleRegister()">Create Account</button>
+
+    <div class="link-text">
+      Already have an account? <a href="./loginpage.html">Sign In Here</a>
+    </div>
+  </div>
+
+  <!-- Particle Background Animation -->
+  <script>
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Create particles
+    for (let i = 0; i < 50; i++) {
+      particles.push(new Particle());
+    }
+
+    // Animation loop
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+
+  <!-- Firebase Registration Module -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyASlqnPSK0zcv4rjcxGvVU4kOAgpZDRNPY",
+      authDomain: "design-thread-92e99.firebaseapp.com",
+      projectId: "design-thread-92e99",
+      storageBucket: "design-thread-92e99.firebasestorage.app",
+      messagingSenderId: "910872335448",
+      appId: "1:910872335448:web:b7de29e63d508853c7262d"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Registration function
+    window.handleRegister = async function() {
+      const email = document.getElementById('register-email').value.trim();
+      const password = document.getElementById('register-password').value.trim();
+      const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+      // Validation
+      if (!email || !password || !confirmPassword) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters long');
+        return;
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+
+      try {
+        console.log('Creating user account...');
+        await createUserWithEmailAndPassword(auth, email, password);
+        
+        console.log('Account created successfully!');
+        alert('Registration successful! Redirecting to login page...');
+        
+        // Redirect to login page after successful registration
+        setTimeout(() => {
+          window.location.href = './loginpage.html';
+        }, 1500);
+        
+      } catch (error) {
+        console.log('Registration error:', error.message);
+        
+        // Handle specific Firebase errors
+        if (error.code === 'auth/email-already-in-use') {
+          alert('This email is already registered. Please use login or try another email.');
+        } else if (error.code === 'auth/invalid-email') {
+          alert('Invalid email address');
+        } else if (error.code === 'auth/weak-password') {
+          alert('Password is too weak. Use a stronger password.');
+        } else {
+          alert('Registration failed: ' + error.message);
+        }
+      }
+    };
+  </script>
+
+</body>
+</html>

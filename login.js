@@ -38,6 +38,7 @@ window.handleLogin = async function () {
     await signInWithEmailAndPassword(auth, email, password);
     console.log("Firebase login successful!");
     sessionStorage.setItem('dtLoggedIn', '1');
+    sessionStorage.setItem('dtUserEmail', email);
     console.log("dtLoggedIn flag set. Stored value:", sessionStorage.getItem('dtLoggedIn'));
     alert('Login successful!');
     console.log("Redirecting to code.html");
@@ -45,8 +46,18 @@ window.handleLogin = async function () {
   } catch (error) {
     console.log("Firebase login failed:", error.message);
     sessionStorage.removeItem('dtLoggedIn');
+    sessionStorage.removeItem('dtUserEmail');
     alert('Login failed: ' + error.message);
   }
+};
+
+// Logout function - called when user clicks logout button
+window.handleLogout = function () {
+  console.log("Logout button clicked");
+  sessionStorage.removeItem('dtLoggedIn');
+  sessionStorage.removeItem('dtUserEmail');
+  alert('You have been logged out');
+  window.location.href = './loginpage.html';
 };
 
 

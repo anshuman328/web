@@ -8,13 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./footer.css">
   
-  <!-- Auth Guard - Show login page if session ended -->
+  <!-- Auth Guard - Show login page if not logged in -->
   <script>
     if (sessionStorage.getItem('dtLoggedIn') !== '1') {
       window.location.href = './loginpage.html';
     }
   </script>
-
 
 
 </head>
