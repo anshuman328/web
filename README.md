@@ -4,6 +4,9 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 
 ## 🚀 Features
 
+- **Firebase Authentication**: Secure user authentication system with email and password login.
+- **User Registration**: New users can create accounts and register with email and password.
+- **Login System**: Registered users must login every time they visit the site using sessionStorage for session management.
 - **Responsive Navigation Bar**: Includes a logo, search functionality, and action icons (Profile, Favorites, Cart).
 - **Dynamic Category Pages**: Dedicated layouts for various categories with interactive hover effects.
 - **Image Carousels**: Featured product banners and promotional displays.
@@ -12,12 +15,19 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 
 ## 📂 Project Structure
 
+- `loginpage.html`: Login page where registered users enter their email and password.
+- `register.html`: Registration page where new users create their account with Firebase.
+- `auth-guard.js`: Authentication guard that redirects users to login page if not authenticated.
+- `login.js`: Firebase authentication module handling login, logout, and session management with sessionStorage.
 - `code.html`: Main home page with navbar and hero sections.
-- `code2.html`: Secondary category or product listing page.
-- `code3.html`: Specific category display (e.g., Women's collection).
+- `code2.html`: Men's category page with product listings.
+- `code3.html`: Women's category page with product listings.
+- `product-detail.html`: Product detail page showing individual product information.
 - `style.css`: Core styling for the main layout.
-- `style2.css`: Layout-specific styles for the second page.
-- `style3.css`: Styles for category layouts and specialized hover effects.
+- `style2.css`: Layout-specific styles for the men's category page.
+- `style3.css`: Styles for women's category and specialized hover effects.
+- `productD.css`: Styling for product detail page.
+- `footer.css`: Footer styling for all pages.
 - `image/`: Directory containing local assets and icons.
 
 ## 🛠️ Technologies Used
@@ -25,7 +35,39 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 - **HTML5**: Semantic structure for web pages.
 - **CSS3**: Layouts using Flexbox, Grid, and custom animations.
 - **JavaScript**: Interactive features and dynamic functionality.
+- **Firebase**: Backend authentication and user account management.
 - **External Assets**: Integrated high-quality product imagery.
+
+## 🔐 Authentication System
+
+### How It Works
+
+1. **New User Registration**:
+   - User navigates to `register.html`
+   - Enters email and password
+   - Account is created in Firebase with `createUserWithEmailAndPassword()`
+   - User is redirected to login page
+
+2. **Existing User Login**:
+   - User opens any page on the website
+   - `auth-guard.js` checks if user is authenticated using sessionStorage
+   - If not authenticated, redirects to `loginpage.html`
+   - User logs in with email and password
+   - Firebase validates credentials with `signInWithEmailAndPassword()`
+   - Session is stored in `sessionStorage` (expires when browser closes)
+   - User gains access to all pages
+
+3. **Session Management**:
+   - Uses `sessionStorage` instead of `localStorage`
+   - Session expires automatically when the browser is closed
+   - User must login again on their next visit
+   - Logout button clears session and redirects to login page
+
+### Firebase Configuration
+
+- **Project**: Design Thread (design-thread-92e99)
+- **Authentication Method**: Email & Password
+- **Config Location**: [login.js](login.js) and [register.html](register.html)
 
 ## 🖥️ Getting Started
 
@@ -41,12 +83,28 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 
 ## ⚙️ JavaScript Functionality
 
-- **[app.js](app.js)**: Main JavaScript file that handles:
-  - Interactive features and DOM manipulation
-  - Event listeners for user interactions
-  - Dynamic content loading and product detail displays
-  - Form handling and data processing
-  - Shopping cart functionality and state management
+- **[login.js](login.js)**: Firebase authentication module that handles:
+  - User login with email and password validation
+  - Firebase authentication integration (`signInWithEmailAndPassword()`)
+  - Session management using sessionStorage
+  - Logout functionality
+  - Particle animation background for login page
+  
+- **[auth-guard.js](auth-guard.js)**: Authentication guard that handles:
+  - Checking if user is authenticated (checks sessionStorage)
+  - Redirecting unauthenticated users to login page
+  - Allowing access to public pages (loginpage.html, register.html)
+  
+- **[register.html](register.html)**: Registration page that handles:
+  - New user account creation with Firebase
+  - Email and password validation
+  - Password confirmation verification
+  - Firebase `createUserWithEmailAndPassword()` integration
+  - Error handling for existing emails and weak passwords
+  
+- **[category-links.js](category-links.js)**: Navigation handler that handles:
+  - Dynamic category navigation
+  - Product filtering by category
 
 **Usage**: The `app.js` file is linked in HTML files to provide interactivity and enhance user experience across all pages.
 
