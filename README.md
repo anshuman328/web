@@ -7,6 +7,7 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 - **Firebase Authentication**: Secure user authentication system with email and password login.
 - **User Registration**: New users can create accounts and register with email and password.
 - **Login System**: Registered users must login every time they visit the site using sessionStorage for session management.
+- **Password Reset**: Users can reset forgotten passwords via email using Firebase's password reset feature.
 - **Responsive Navigation Bar**: Includes a logo, search functionality, and action icons (Profile, Favorites, Cart).
 - **Dynamic Category Pages**: Dedicated layouts for various categories with interactive hover effects.
 - **Image Carousels**: Featured product banners and promotional displays.
@@ -17,6 +18,7 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 
 - `loginpage.html`: Login page where registered users enter their email and password.
 - `register.html`: Registration page where new users create their account with Firebase.
+- `forgot-password.html`: Password reset request page where users can request a password reset email.
 - `auth-guard.js`: Authentication guard that redirects users to login page if not authenticated.
 - `login.js`: Firebase authentication module handling login, logout, and session management with sessionStorage.
 - `code.html`: Main home page with navbar and hero sections.
@@ -63,6 +65,15 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
    - User must login again on their next visit
    - Logout button clears session and redirects to login page
 
+4. **Password Reset**:
+   - User clicks "Forgot password?" link on login page
+   - Navigates to `forgot-password.html`
+   - Enters their registered email address
+   - Firebase sends a password reset email using `sendPasswordResetEmail()`
+   - User clicks the reset link in the email
+   - Firebase's built-in page guides user to create a new password
+   - User can then login with the new password
+
 ### Firebase Configuration
 
 - **Project**: Design Thread (design-thread-92e99)
@@ -93,7 +104,20 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 - **[auth-guard.js](auth-guard.js)**: Authentication guard that handles:
   - Checking if user is authenticated (checks sessionStorage)
   - Redirecting unauthenticated users to login page
-  - Allowing access to public pages (loginpage.html, register.html)
+  - Allowing access to public pages (loginpage.html, register.html, forgot-password.html)
+  
+- **[forgot-password.html](forgot-password.html)**: Password reset page that handles:
+  - User input for email address
+  - Validation of email format
+  - Success and error message display
+  - Auto-redirect to login after successful reset request
+
+- **[forgot-password.js](forgot-password.js)**: Password reset functionality that handles:
+  - Sending password reset emails via Firebase `sendPasswordResetEmail()`
+  - Email validation (format and existence checking)
+  - Error handling for invalid emails, user not found, and rate limiting
+  - Success messages with automatic redirect to login
+  - Particle animation background for forgot password page
   
 - **[register.html](register.html)**: Registration page that handles:
   - New user account creation with Firebase
