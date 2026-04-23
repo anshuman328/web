@@ -8,9 +8,9 @@ import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebas
 // ========================================
 
 const firebaseConfig = {
-  apiKey: "AIzaSyASlqnPSK0zcv4rjcxGvVU4kOAgpZDRNPY",
+  apiKey: "AIzaSyASlqnPSK0zcv4rjcxGvVU4kOAgpZDRNPY",   
   authDomain: "design-thread-92e99.firebaseapp.com",
-  projectId: "design-thread-92e99",
+  projectId: "design-thread-92e99", 
   storageBucket: "design-thread-92e99.firebasestorage.app",
   messagingSenderId: "910872335448",
   appId: "1:910872335448:web:b7de29e63d508853c7262d"
