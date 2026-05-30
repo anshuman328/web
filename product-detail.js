@@ -59,7 +59,7 @@ const products = {
         5: {
             name: "Space Player Casual T-Shirt",
             price: 479,
-            image: "https://shosaqualitees.com/cdn/shop/files/WvGk7EjB_4x_76b29fb3-9dd3-47d2-88ba-de30171bd1d4.jpg?v=1723890820&width=1946",
+            image: "https://veirdo.in/cdn/shop/files/Artboard3-2026-03-02T104852.271.jpg?v=1772428778&width=1100",
             description: "Casual space-themed t-shirt perfect for everyday adventures. Comfortable and stylish.",
             category: "Men's Fashion",
             material: "100% Cotton",
