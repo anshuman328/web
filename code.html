@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Design Thread - E-commerce platform for fashion and apparel">
+  <meta name="theme-color" content="#ffffff">
   <title>E-commerce Navbar</title>
   <link rel="stylesheet" href="./style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -15,34 +17,32 @@
     }
   </script>
 
-
 </head>
 
 <body>
-  <header>
-     <nav class="navbar">
-
-      <div class="logo"><img src="./image/image1.png" height="70" alt="img" ></div>
+  <header role="banner">
+     <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="logo"><img src="./image/image1.png" alt="Design Thread Logo" loading="lazy"></div>
       <div class="search">
-        <input type="search" placeholder="Search for products" >
+        <input type="search" placeholder="Search for products" aria-label="Search products" inputmode="search">
       </div>
-      <div class="actions">
+      <div class="actions" role="toolbar" aria-label="User actions">
         <button class="action-btn" onclick="handleLogout()" aria-label="Logout" title="Logout">👤</button>
-        <button class="action-btn">❤️ <span class="badge">2</span></button>
-        <button class="action-btn">🛒 <span class="badge">3</span></button>
+        <button class="action-btn" aria-label="Favorites" title="View favorites">❤️ <span class="badge" aria-hidden="true">2</span></button>
+        <button class="action-btn" aria-label="Shopping cart" title="View cart">🛒 <span class="badge" aria-hidden="true">3</span></button>
       </div>
     </nav>
   </header>
-  <main>
+  
+  <main role="main">
     <div class="div2">
-      
-      <img src="./image/front-img2.png" alt="img" height="1500" width="1500"> 
+      <img src="./image/front-img2.png" alt="Featured Product" loading="lazy"> 
     </div>
 
     <!-- Gender buttons open category pages -->
-    <div class="gender-buttons">
-      <a href="code2.html" class="gender-button">For Men</a>
-      <a href="code3.html" class="gender-button">For Women</a>
+    <div class="gender-buttons" role="group" aria-label="Shop by category">
+      <a href="code2.html" class="gender-button" title="Browse men's collection">For Men</a>
+      <a href="code3.html" class="gender-button" title="Browse women's collection">For Women</a>
     </div>
   </main>
   
