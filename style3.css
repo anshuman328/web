@@ -3,7 +3,7 @@
     text-align: center;
     border: 5px solid grey;
     width: auto;
-    max-width: calc(100% - 40px);
+    max-width: calc(100% - 0px);
     height: 150px;
     display: flex;
     align-items: center;
