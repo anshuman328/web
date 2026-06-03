@@ -345,18 +345,39 @@ function addToCart() {
     }
     
     // Get selected quantity from input field
-    const quantity = document.getElementById('quantity').value;
+    const quantity = parseInt(document.getElementById('quantity').value);
     
     // Get current product data
     const product = getProductData();
     
     // Verify product exists and add to cart
     if (product) {
+        // Get existing cart or initialize empty array
+        const cart = JSON.parse(localStorage.getItem('dtCart')) || [];
+        
+        // Find if item already exists in cart with same size
+        const existingItemIndex = cart.findIndex(item => item.id === product.name && item.size === selectedSize);
+        
+        if (existingItemIndex > -1) {
+            // Update quantity if item already exists
+            cart[existingItemIndex].quantity += quantity;
+        } else {
+            // Add new item if it doesn't exist
+            cart.push({
+                name: product.name,
+                price: product.price,
+                image: product.image,
+                size: selectedSize,
+                quantity: quantity,
+                id: product.name // Using name as ID for simplicity in this case, or could use product ID from URL
+            });
+        }
+        
+        // Save updated cart to localStorage
+        localStorage.setItem('dtCart', JSON.stringify(cart));
+        
         // Show confirmation alert with size and quantity
         alert(`Added ${quantity} ${product.name}(s) in size ${selectedSize} to cart!`);
-        
-        // TODO: Future enhancement - Save to actual cart system
-        // This could save to localStorage, send to server, or update cart UI
     } else {
         // Show error if product not found
         alert("Product not found. Please try again.");
