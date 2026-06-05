@@ -25,10 +25,12 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 - `code2.html`: Men's category page with product listings.
 - `code3.html`: Women's category page with product listings.
 - `product-detail.html`: Product detail page showing individual product information.
+- `cart.html`: Shopping cart page displaying added items, quantities, and order summary.
 - `style.css`: Core styling for the main layout.
 - `style2.css`: Layout-specific styles for the men's category page.
 - `style3.css`: Styles for women's category and specialized hover effects.
 - `productD.css`: Styling for product detail page.
+- `cart.css`: Styling for the shopping cart page.
 - `footer.css`: Footer styling for all pages.
 - `image/`: Directory containing local assets and icons.
 
@@ -86,11 +88,56 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 2. Open [code.html](code.html) in any modern web browser to view the homepage.
 3. Navigate through the site using the links provided (if available) or by opening individual HTML files.
 
+## � Shopping Cart & Add to Cart Feature
+
+The **Add to Cart** functionality is a core feature of our e-commerce platform that allows users to collect items for purchase.
+
+### Cart Page ([cart.html](cart.html))
+
+The shopping cart page displays:
+- **Saved Items**: All products added to the cart with product details
+- **Quantity Management**: Users can adjust quantities or remove items
+- **Order Summary**: Automatic calculation of:
+  - Subtotal (sum of all items)
+  - Estimated Tax (5% of subtotal)
+  - Shipping costs (calculated at checkout)
+  - Final Total amount
+- **Checkout Button**: Proceed to purchase when ready
+- **Empty Cart State**: Clear message when no items in cart
+
+### How Add to Cart Works
+
+1. **Browse & Select**: Users explore products across categories
+2. **Add to Cart**: Click the "Add to Cart" button on any product
+3. **Cart Updated**: Item is saved to the shopping cart
+4. **View Cart**: Navigate to [cart.html](cart.html) to review items
+5. **Checkout**: Proceed with purchase when ready
+
+### Related JavaScript Files
+
+- **[cart.js](cart.js)**: Manages all cart functionality:
+  - Adding items to cart
+  - Removing items from cart
+  - Updating item quantities
+  - Calculating subtotal, tax, and total
+  - Persisting cart data
+  - Displaying cart items dynamically
+
+### Cart Styling
+
+- **[cart.css](cart.css)**: Provides styling for:
+  - Cart items section with product cards
+  - Order summary sidebar
+  - Responsive layout for mobile and desktop
+  - Interactive buttons for quantity adjustment
+  - Empty cart and loading states
+
 ## 🖌️ Design Details
 
 - **Navbar**: Optimized for e-commerce with centered search and quick-access icons.
 - **Hover Effects**: Products in [style3.css](style3.css) feature 1.05x scaling and box shadows on hover for better user engagement.
 - **Image Handling**: Uses `object-fit: cover` and `contain` to ensure product images maintain aspect ratios across different screen sizes.
+- **Cart Integration**: Seamless cart experience with real-time updates and persistent storage.
 
 ## ⚙️ JavaScript Functionality
 
