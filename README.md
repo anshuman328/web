@@ -132,7 +132,60 @@ The shopping cart page displays:
   - Interactive buttons for quantity adjustment
   - Empty cart and loading states
 
-## 🖌️ Design Details
+## �️ Checkout Success Page
+
+The **Checkout Success** page is displayed after users complete their purchase and provides order confirmation.
+
+### Checkout Success Page ([checkout-success.html](checkout-success.html))
+
+The checkout success page displays:
+- **Animated Green Checkmark**: Beautiful SVG animation that plays on page load
+- **Order Confirmation**: "Order Placed Successfully!" message with celebration emoji
+- **Main Message**: "We will reach you soon!" to notify customers about upcoming contact
+- **Order Information**: 
+  - Auto-generated unique Order ID
+  - Processing status
+  - Estimated delivery date (5-7 days)
+- **Features List**: 
+  - ✓ Payment Confirmed
+  - ✓ Order Confirmed
+  - ⏱ Preparing for Shipping
+- **Contact Information**: Explains that customers will receive:
+  - 📞 Confirmation call at registered phone number
+  - 📧 Email confirmation with tracking details
+- **Action Button**: "Continue Shopping" to return to homepage
+- **Support Link**: Contact support option for customer service
+
+### Checkout Process Flow
+
+1. **Add Items**: Users browse and add products to cart
+2. **Review Cart**: Navigate to [cart.html](cart.html) to review items
+3. **Order Summary**: View subtotal, tax, and total amount
+4. **Proceed to Checkout**: Click "PROCEED TO CHECKOUT" button
+5. **Success Page**: Redirected to [checkout-success.html](checkout-success.html)
+6. **Confirmation**: See green checkmark, order ID, and estimated delivery date
+7. **Continue**: Option to continue shopping or contact support
+
+### Related Files
+
+- **[checkout-success.html](checkout-success.html)**: Checkout success confirmation page
+  - Displays order confirmation with animated checkmark
+  - Shows order details and delivery information
+  - Provides customer contact information
+
+- **[checkout-success.css](checkout-success.css)**: Styling for checkout success page:
+  - Animated green checkmark and SVG animations
+  - Card-based layout with gradient background
+  - Responsive design for all devices
+  - Button styles and hover effects
+
+- **[checkout-success.js](checkout-success.js)**: Functionality for checkout success page:
+  - Generates unique Order IDs
+  - Calculates estimated delivery date
+  - Saves order data to localStorage
+  - Auto-initializes on page load
+
+
 
 - **Navbar**: Optimized for e-commerce with centered search and quick-access icons.
 - **Hover Effects**: Products in [style3.css](style3.css) feature 1.05x scaling and box shadows on hover for better user engagement.
