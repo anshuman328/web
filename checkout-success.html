@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - Design Thread</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="./checkout-success.css">
+</head>
+<body>
+    <!-- Header -->
+    <header role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="logo"><a href="code.html"><img src="./image/image1.png" alt="Design Thread Logo" loading="lazy"></a></div>
+            <div class="actions" role="toolbar" aria-label="User actions">
+                <a href="code.html" class="action-btn" title="Home">🏠</a>
+                <a href="cart.html" class="action-btn" title="View cart">🛒</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Success Container -->
+    <div class="success-container">
+        <div class="success-card">
+            <!-- Green Checkmark Animation -->
+            <div class="success-icon">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.6"/>
+                </svg>
+            </div>
+
+            <!-- Success Message -->
+            <h1 class="success-title">Order Placed Successfully! ✨</h1>
+            <p class="success-subtitle">Thank you for your order</p>
+
+            <!-- Main Message -->
+            <div class="success-message">
+                <p class="main-message">We will reach you soon! 📱</p>
+                <p class="details-message">Our team is processing your order and will contact you shortly with delivery details.</p>
+            </div>
+
+            <!-- Order Info -->
+            <div class="order-info">
+                <div class="info-item">
+                    <span class="info-label">Order ID:</span>
+                    <span class="info-value" id="orderId">#ORD-2024001</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Status:</span>
+                    <span class="info-value status-processing">Processing</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Estimated Delivery:</span>
+                    <span class="info-value" id="estimatedDelivery">5-7 Days</span>
+                </div>
+            </div>
+
+            <!-- Features List -->
+            <div class="features-list">
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span class="feature-text">Payment Confirmed</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span class="feature-text">Order Confirmed</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⏱</span>
+                    <span class="feature-text">Preparing for Shipping</span>
+                </div>
+            </div>
+
+            <!-- Contact Message -->
+            <div class="contact-message">
+                <p>📞 You will receive a confirmation call at your registered phone number</p>
+                <p>📧 Check your email for order confirmation and tracking details</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="code.html" class="btn btn-primary">Continue Shopping</a>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="additional-info">
+                <p>Have questions? <a href="#" class="contact-link">Contact Our Support Team</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__top">
+            <span class="footer__logo">DESIGN THREAD</span>
+            <p class="footer__tagline">WEAR YOUR OWN VIBE</p>
+        </div>
+
+        <hr class="footer__divider" />
+
+        <div class="footer__columns">
+            <div class="footer__col">
+                <h4 class="footer__col-title">Help</h4>
+                <ul>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Track Your Order</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h4 class="footer__col-title">Contact</h4>
+                <div class="footer__contact-item">
+                    <span class="footer__contact-label">Email</span>
+                    <a href="mailto:hello@designthread.com" class="footer__contact-value">hello@designthread.com</a>
+                </div>
+                <div class="footer__contact-item">
+                    <span class="footer__contact-label">Phone</span>
+                    <a href="tel:+911234567890" class="footer__contact-value">+91 12345 67890</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2025 Design Thread. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./checkout-success.js"></script>
+</body>
+</html>

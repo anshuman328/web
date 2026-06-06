@@ -102,12 +102,14 @@ function updateSummary(subtotal) {
 }
 
 /**
- * Handle checkout (placeholder)
+ * Handle checkout (redirect to success page)
  */
 function checkout() {
-    alert("Thank you for your order! This feature is coming soon.");
+    // Clear the cart from localStorage
     localStorage.removeItem('dtCart');
-    displayCart();
+    
+    // Redirect to success page
+    window.location.href = 'checkout-success.html';
 }
 
 // Initialize cart on load

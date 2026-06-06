@@ -1,0 +1,499 @@
+/* Checkout Success Page Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(135deg, #f0f5ff 0%, #f9f5ff 100%);
+    min-height: 100vh;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: white;
+    border-bottom: 1px solid #ccc;
+    z-index: 100;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-btn {
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Success Container */
+.success-container {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.success-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(139, 90, 142, 0.15);
+    padding: 50px 40px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Green Checkmark Icon */
+.success-icon {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.checkmark {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.checkmark-circle {
+    stroke: #8b5a8e;
+    stroke-width: 2;
+    stroke-linecap: round;
+    animation: stroke-animation 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+    stroke: #8b5a8e;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: stroke-check 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+}
+
+@keyframes stroke-animation {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes stroke-check {
+    0% {
+        stroke-dashoffset: 48;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Title and Subtitle */
+.success-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.success-subtitle {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Success Message */
+.success-message {
+    background: linear-gradient(135deg, #f0f8ff 0%, #f5f1ff 100%);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 4px solid #8b5a8e;
+}
+
+.main-message {
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.details-message {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Order Info */
+.order-info {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.info-value {
+    color: #8b5a8e;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.status-processing {
+    background: #fff3cd;
+    color: #856404;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Features List */
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background: #efe8f5;
+    transform: translateX(5px);
+}
+
+.feature-icon {
+    font-size: 1.3rem;
+    color: #8b5a8e;
+    min-width: 24px;
+    text-align: center;
+}
+
+.feature-text {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Contact Message */
+.contact-message {
+    background: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #d0e8ff;
+}
+
+.contact-message p {
+    color: #0066cc;
+    font-size: 0.95rem;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #8b5a8e 0%, #6d4470 100%);
+    color: white;
+    flex: 1;
+    min-width: 180px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 90, 142, 0.3);
+}
+
+.btn-secondary {
+    background: white;
+    color: #8b5a8e;
+    border: 2px solid #8b5a8e;
+    flex: 1;
+    min-width: 180px;
+}
+
+.btn-secondary:hover {
+    background: #8b5a8e;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Additional Info */
+.additional-info {
+    font-size: 0.9rem;
+    color: #666;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.contact-link {
+    color: #8b5a8e;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+    color: #6d4470;
+}
+
+/* Footer */
+.footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background: #333;
+    color: white;
+}
+
+.footer__top {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.footer__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer__tagline {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 0;
+}
+
+.footer__divider {
+    border: none;
+    border-top: 1px solid #555;
+    margin: 30px 0;
+}
+
+.footer__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer__col {
+    text-align: center;
+}
+
+.footer__col-title {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer__col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer__col ul li {
+    margin-bottom: 8px;
+}
+
+.footer__col ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer__col ul li a:hover {
+    color: white;
+}
+
+.footer__contact-item {
+    margin-bottom: 15px;
+}
+
+.footer__contact-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.footer__contact-value {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer__contact-value:hover {
+    text-decoration: underline;
+}
+
+.footer__bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.footer__copyright {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .success-card {
+        padding: 30px 20px;
+    }
+
+    .success-title {
+        font-size: 1.8rem;
+    }
+
+    .success-icon {
+        margin-bottom: 20px;
+    }
+
+    .checkmark {
+        width: 80px;
+        height: 80px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .footer__columns {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .success-card {
+        padding: 20px 15px;
+    }
+
+    .success-title {
+        font-size: 1.5rem;
+    }
+
+    .main-message {
+        font-size: 1.1rem;
+    }
+
+    .checkmark {
+        width: 70px;
+        height: 70px;
+    }
+
+    .order-info {
+        padding: 15px;
+    }
+
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
