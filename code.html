@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#ffffff">
   <title>E-commerce Navbar</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./account-drawer.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./footer.css">
   
@@ -27,11 +28,42 @@
         <input type="search" placeholder="Search for products" aria-label="Search products" inputmode="search">
       </div>
       <div class="actions" role="toolbar" aria-label="User actions">
-        <button class="action-btn" onclick="handleLogout()" aria-label="Logout" title="Logout">👤</button>
+        <button class="action-btn" type="button" onclick="toggleAccountDrawer()" aria-label="Open account menu" title="Account">👤</button>
         <a href="cart.html" class="action-btn" aria-label="Shopping cart" title="View cart">🛒</a>
       </div>
     </nav>
   </header>
+
+  <!-- Dark overlay that closes the drawer when the user clicks outside it -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeAccountDrawer()" hidden></div>
+
+  <!-- Slide-out account panel for profile, address, and logout actions -->
+  <aside class="account-drawer" id="accountDrawer" aria-label="Account menu" aria-hidden="true">
+    <div class="account-drawer__header">
+      <div>
+        <p class="account-drawer__eyebrow">Account</p>
+        <h2>Hi there</h2>
+      </div>
+      <button class="account-drawer__close" type="button" onclick="closeAccountDrawer()" aria-label="Close account menu">×</button>
+    </div>
+
+    <div class="account-drawer__profile">
+      <div class="account-drawer__avatar">👤</div>
+      <div>
+        <p class="account-drawer__label">Signed in as</p>
+        <p class="account-drawer__value" id="accountEmail">Account</p>
+      </div>
+    </div>
+
+    <nav class="account-drawer__nav" aria-label="Account sections">
+      <button class="account-drawer__item" type="button">Profile</button>
+      <button class="account-drawer__item" type="button">Address</button>
+      <button class="account-drawer__item" type="button">Orders</button>
+      <button class="account-drawer__item" type="button">Support</button>
+    </nav>
+
+    <button class="account-drawer__logout" type="button" onclick="handleLogout()">Logout</button>
+  </aside>
   
   <main role="main">
     <div class="div2">
@@ -46,16 +78,10 @@
   </main>
   
 
-  <!-- Logout Handler -->
-  <script>
-    function handleLogout() {
-      sessionStorage.removeItem('dtLoggedIn');
-      window.location.href = './loginpage.html';
-    }
-  </script>
-
   <!-- Category Navigation Handler -->
   <script src="./category-links.js" defer></script>
+  <!-- Drawer behavior is kept in a separate file so the page stays easy to scan -->
+  <script src="./account-drawer.js" defer></script>
 
   
 
