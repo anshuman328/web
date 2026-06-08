@@ -9,6 +9,7 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 - **Login System**: Registered users must login every time they visit the site using sessionStorage for session management.
 - **Password Reset**: Users can reset forgotten passwords via email using Firebase's password reset feature.
 - **Responsive Navigation Bar**: Includes a logo, search functionality, and action icons (Profile, Favorites, Cart).
+- **Account Drawer**: Clicking the profile icon opens a side panel with profile, address, and logout options.
 - **Dynamic Category Pages**: Dedicated layouts for various categories with interactive hover effects.
 - **Image Carousels**: Featured product banners and promotional displays.
 - **Product Grids**: Flexbox-based product listings with responsive designs.
@@ -26,6 +27,8 @@ A multi-page responsive e-commerce user interface featuring carousels, category 
 - `code3.html`: Women's category page with product listings.
 - `product-detail.html`: Product detail page showing individual product information.
 - `cart.html`: Shopping cart page displaying added items, quantities, and order summary.
+- `account-drawer.js`: Controls the open and close behavior of the profile side drawer.
+- `account-drawer.css`: Styles the overlay and slide-out account panel.
 - `style.css`: Core styling for the main layout.
 - `style2.css`: Layout-specific styles for the men's category page.
 - `style3.css`: Styles for women's category and specialized hover effects.
