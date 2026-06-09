@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Design Thread account drawer demo">
+  <meta name="theme-color" content="#ffffff">
+  <title>Account Drawer</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./account-drawer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script>
+    if (sessionStorage.getItem('dtLoggedIn') !== '1') {
+      window.location.href = './loginpage.html';
+    }
+  </script>
+</head>
+<body>
+  <main role="main" style="min-height: 100vh; display: grid; place-items: center; padding: 2rem;">
+    <section style="max-width: 720px; width: 100%; text-align: center; display: grid; gap: 1rem; justify-items: center;">
+      <p style="margin: 0; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.75rem; color: #6b6b6b;">Account Drawer</p>
+      <h1 style="margin: 0; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 4rem); color: #111;">Open the drawer and view the signed-in account state.</h1>
+      <p style="margin: 0; max-width: 56ch; color: #4b4b4b; line-height: 1.6; font-family: 'DM Sans', sans-serif;">This page uses the shared drawer styles and JavaScript so you can test the account panel by itself.</p>
+      <button class="action-btn" type="button" onclick="toggleAccountDrawer()" aria-label="Open account menu" title="Account">Open Account Drawer</button>
+    </section>
+  </main>
+
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeAccountDrawer()" hidden></div>
+
+  <aside class="account-drawer" id="accountDrawer" aria-label="Account menu" aria-hidden="true">
+    <div class="account-drawer__header">
+      <div>
+        <p class="account-drawer__eyebrow">Account</p>
+        <h2>Hi there</h2>
+      </div>
+      <button class="account-drawer__close" type="button" onclick="closeAccountDrawer()" aria-label="Close account menu">×</button>
+    </div>
+
+    <div class="account-drawer__profile">
+      <div class="account-drawer__avatar">👤</div>
+      <div>
+        <p class="account-drawer__label">Signed in as</p>
+        <p class="account-drawer__value" id="accountEmail">Account</p>
+      </div>
+    </div>
+
+    <nav class="account-drawer__nav" aria-label="Account sections">
+      <button class="account-drawer__item" type="button">Profile</button>
+      <button class="account-drawer__item" type="button">Address</button>
+      <button class="account-drawer__item" type="button">Orders</button>
+      <button class="account-drawer__item" type="button">Support</button>
+    </nav>
+
+    <button class="account-drawer__logout" type="button" onclick="handleLogout()">Logout</button>
+  </aside>
+
+  <script src="./account-drawer.js" defer></script>
+</body>
+</html>
