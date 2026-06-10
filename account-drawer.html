@@ -46,10 +46,48 @@
     </div>
 
     <nav class="account-drawer__nav" aria-label="Account sections">
-      <button class="account-drawer__item" type="button">Address</button>
+      <button class="account-drawer__item" type="button" data-drawer-target="address">Address</button>
       <button class="account-drawer__item" type="button">Orders</button>
       <button class="account-drawer__item" type="button">Support</button>
     </nav>
+
+    <section class="account-drawer__address" id="accountAddressPanel" aria-label="Address form">
+      <div>
+        <p class="account-drawer__eyebrow">Address</p>
+        <h3>Enter your delivery address</h3>
+      </div>
+
+      <form class="account-drawer__form" id="addressForm">
+        <label class="account-drawer__field">
+          <span>Full name</span>
+          <input type="text" name="fullName" placeholder="Enter your name" autocomplete="name">
+        </label>
+
+        <label class="account-drawer__field">
+          <span>Phone number</span>
+          <input type="tel" name="phone" placeholder="Enter your phone number" autocomplete="tel">
+        </label>
+
+        <label class="account-drawer__field">
+          <span>Street address</span>
+          <textarea name="streetAddress" rows="3" placeholder="House number, street, area" autocomplete="street-address"></textarea>
+        </label>
+
+        <div class="account-drawer__field-row">
+          <label class="account-drawer__field">
+            <span>City</span>
+            <input type="text" name="city" placeholder="City" autocomplete="address-level2">
+          </label>
+
+          <label class="account-drawer__field">
+            <span>PIN code</span>
+            <input type="text" name="pinCode" placeholder="PIN code" inputmode="numeric" autocomplete="postal-code">
+          </label>
+        </div>
+
+        <button class="account-drawer__address-save" type="button">Save Address</button>
+      </form>
+    </section>
 
     <button class="account-drawer__logout" type="button" onclick="handleLogout()">Logout</button>
   </aside>

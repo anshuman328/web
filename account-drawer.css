@@ -1,3 +1,8 @@
+/* Lock body scroll when drawer is open */
+body.drawer-open {
+    overflow: hidden;
+}
+
 /* Overlay and drawer panel for the account side sheet */
 .drawer-overlay {
     position: fixed;
@@ -105,6 +110,94 @@
 .account-drawer__nav {
     display: grid;
     gap: 0.65rem;
+}
+
+.account-drawer__address {
+    display: grid;
+    gap: 0.9rem;
+    padding: 0 1rem;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    background: #fafafa;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease, padding 0.25s ease, border-color 0.25s ease;
+    scroll-margin-top: 1rem;
+}
+
+.account-drawer__address.is-visible {
+    max-height: 2000px;
+    padding: 1rem;
+    border-color: #e6e6e6;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.account-drawer__address h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #111;
+}
+
+.account-drawer__form {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.account-drawer__field {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.account-drawer__field span {
+    font-size: 0.78rem;
+    color: #6b6b6b;
+}
+
+.account-drawer__field input,
+.account-drawer__field textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 0.85rem 0.95rem;
+    font: inherit;
+    color: #111;
+    background: #fff;
+    resize: vertical;
+}
+
+.account-drawer__field input:focus,
+.account-drawer__field textarea:focus {
+    outline: 2px solid rgba(17, 17, 17, 0.12);
+    border-color: #bdbdbd;
+}
+
+.account-drawer__field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.account-drawer__address-save {
+    border: none;
+    background: #111;
+    color: #fff;
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    font-size: 0.98rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.account-drawer__address-save:hover,
+.account-drawer__address-save:focus-visible {
+    background: #000;
+    outline: none;
 }
 
 .account-drawer__item {
