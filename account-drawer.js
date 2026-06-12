@@ -8,7 +8,6 @@ function openAccountDrawer() {
   }
 
   if (accountEmail) {
-    // Show the logged-in email inside the drawer when available.
     accountEmail.textContent = sessionStorage.getItem('dtUserEmail') || 'Your account';
   }
 
@@ -64,7 +63,6 @@ function openAddressSection() {
   // Toggle: if already visible, hide it
   if (addressSection.classList.contains('is-visible')) {
     addressSection.classList.remove('is-visible');
-    // Smooth scroll drawer back to top
     if (drawer) {
       drawer.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -73,14 +71,24 @@ function openAddressSection() {
 
   // Show the address section
   addressSection.classList.add('is-visible');
-  
-  // Focus first field after animation completes
+
+  // Wait for expand animation then scroll drawer to show the section
   window.setTimeout(function () {
-    const firstField = addressSection.querySelector('input, textarea, select');
-    if (firstField) {
-      firstField.focus({ preventScroll: true });
+    if (drawer) {
+      const drawerRect = drawer.getBoundingClientRect();
+      const sectionRect = addressSection.getBoundingClientRect();
+      const scrollTarget = drawer.scrollTop + (sectionRect.top - drawerRect.top) - 16;
+      drawer.scrollTo({ top: scrollTarget, behavior: 'smooth' });
     }
-  }, 350);
+
+    // Focus first field after scroll settles
+    window.setTimeout(function () {
+      const firstField = addressSection.querySelector('input, textarea, select');
+      if (firstField) {
+        firstField.focus({ preventScroll: true });
+      }
+    }, 300);
+  }, 360);
 }
 
 function saveAddress() {
@@ -98,7 +106,6 @@ function saveAddress() {
 }
 
 function handleLogout() {
-  // Clear the session flag and user email before sending the user back to login.
   sessionStorage.removeItem('dtLoggedIn');
   sessionStorage.removeItem('dtUserEmail');
   window.location.href = './loginpage.html';
@@ -122,7 +129,6 @@ document.addEventListener('click', function (event) {
   }
 });
 
-// Let the user dismiss the drawer with the Escape key.
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
     closeAccountDrawer();
