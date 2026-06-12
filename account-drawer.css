@@ -3,7 +3,6 @@ body.drawer-open {
     overflow: hidden;
 }
 
-/* Overlay and drawer panel for the account side sheet */
 .drawer-overlay {
     position: fixed;
     inset: 0;
@@ -33,6 +32,8 @@ body.drawer-open {
     padding: 1.25rem;
     gap: 1rem;
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .account-drawer.is-open {
@@ -135,6 +136,7 @@ body.drawer-open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
+    overflow: visible;
 }
 
 .account-drawer__address h3 {
@@ -168,6 +170,7 @@ body.drawer-open {
     color: #111;
     background: #fff;
     resize: vertical;
+    box-sizing: border-box;
 }
 
 .account-drawer__field input:focus,
