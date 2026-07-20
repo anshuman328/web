@@ -63,6 +63,17 @@
         </div>
     </div>
 
+    <div class="cart-popup" id="cartPopup" hidden>
+        <div class="cart-popup__card" role="dialog" aria-modal="true" aria-labelledby="cartPopupMessage">
+            <p class="cart-popup__title">Cart update</p>
+            <p class="cart-popup__message" id="cartPopupMessage"></p>
+            <div class="cart-popup__actions">
+                <button type="button" class="cart-popup__close" onclick="hideCartPopup()">Close</button>
+                <button type="button" class="cart-popup__go" id="goToCartButton" onclick="goToCart()">Go to Cart</button>
+            </div>
+        </div>
+    </div>
+
     <!-- FOOTER DESIGN -->
     <footer class="footer">
         <div class="footer__top">

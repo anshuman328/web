@@ -6,6 +6,7 @@
 
 // Global variable to store selected size
 let selectedSize = null;
+let cartPopupHideTimer = null;
 
 
 // ========================================
@@ -340,7 +341,7 @@ function displayProductDetails(product) {
 function addToCart() {
     // Get selected size
     if (!selectedSize) {
-        alert("Please select a size before adding to cart!");
+        showCartPopup("Please select a size before adding to cart.", false);
         return;
     }
     
@@ -376,12 +377,59 @@ function addToCart() {
         // Save updated cart to localStorage
         localStorage.setItem('dtCart', JSON.stringify(cart));
         
-        // Show confirmation alert with size and quantity
-        alert(`Added ${quantity} ${product.name}(s) in size ${selectedSize} to cart!`);
+        // Show confirmation popup with a direct cart action
+        showCartPopup(`Added ${quantity} ${product.name}(s) in size ${selectedSize} to your cart.`, true);
     } else {
         // Show error if product not found
-        alert("Product not found. Please try again.");
+        showCartPopup("Product not found. Please try again.", false);
     }
+}
+
+/**
+ * Show an in-page popup after adding to cart
+ */
+function showCartPopup(message, showGoToCartButton) {
+    const popup = document.getElementById('cartPopup');
+    const popupMessage = document.getElementById('cartPopupMessage');
+    const goToCartButton = document.getElementById('goToCartButton');
+
+    if (!popup || !popupMessage || !goToCartButton) {
+        window.location.href = 'cart.html';
+        return;
+    }
+
+    if (cartPopupHideTimer) {
+        clearTimeout(cartPopupHideTimer);
+    }
+
+    popupMessage.textContent = message;
+    goToCartButton.style.display = showGoToCartButton ? 'inline-flex' : 'none';
+    popup.hidden = false;
+
+    cartPopupHideTimer = window.setTimeout(() => {
+        popup.hidden = true;
+    }, showGoToCartButton ? 5000 : 3000);
+}
+
+/**
+ * Hide the cart popup
+ */
+function hideCartPopup() {
+    const popup = document.getElementById('cartPopup');
+    if (popup) {
+        popup.hidden = true;
+    }
+    if (cartPopupHideTimer) {
+        clearTimeout(cartPopupHideTimer);
+        cartPopupHideTimer = null;
+    }
+}
+
+/**
+ * Go directly to the cart page
+ */
+function goToCart() {
+    window.location.href = 'cart.html';
 }
 
 

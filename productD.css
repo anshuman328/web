@@ -135,6 +135,88 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
+        .cart-popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 2000;
+        }
+
+        .cart-popup[hidden] {
+            display: none;
+        }
+
+        .cart-popup__card {
+            width: min(100%, 420px);
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(17, 17, 17, 0.08);
+        }
+
+        .cart-popup__title {
+            margin: 0 0 10px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #111;
+        }
+
+        .cart-popup__message {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .cart-popup__actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 22px;
+            flex-wrap: wrap;
+        }
+
+        .cart-popup__close,
+        .cart-popup__go {
+            padding: 12px 18px;
+            border-radius: 999px;
+            border: 1px solid #111;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .cart-popup__close {
+            background: #fff;
+            color: #111;
+        }
+
+        .cart-popup__go {
+            background: #111;
+            color: #fff;
+        }
+
+        .cart-popup__close:hover,
+        .cart-popup__go:hover {
+            transform: translateY(-1px);
+        }
+
+        .cart-popup__go:hover {
+            background: #333;
+        }
+
+        .cart-popup__close:hover {
+            background: #f3f3f3;
+        }
+
         .back-link {
             display: inline-block;
             margin: 20px;

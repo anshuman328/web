@@ -28,7 +28,7 @@ window.handleLogin = async function () {
   console.log("Email:", email, "Password:", password);
   
   if (!email || !password) {
-    alert('Please fill in all fields');
+    console.log('Login blocked: missing email or password');
     return;
   }
 
@@ -40,14 +40,13 @@ window.handleLogin = async function () {
     sessionStorage.setItem('dtLoggedIn', '1');
     sessionStorage.setItem('dtUserEmail', email);
     console.log("dtLoggedIn flag set. Stored value:", sessionStorage.getItem('dtLoggedIn'));
-    alert('Login successful!');
     console.log("Redirecting to code.html");
     window.location.href = 'code.html';
   } catch (error) {
     console.log("Firebase login failed:", error.message);
     sessionStorage.removeItem('dtLoggedIn');
     sessionStorage.removeItem('dtUserEmail');
-    alert('Login failed: ' + error.message);
+    console.error('Login failed:', error.message);
   }
 };
 
@@ -56,7 +55,6 @@ window.handleLogout = function () {
   console.log("Logout button clicked");
   sessionStorage.removeItem('dtLoggedIn');
   sessionStorage.removeItem('dtUserEmail');
-  alert('You have been logged out');
   window.location.href = './loginpage.html';
 };
 
