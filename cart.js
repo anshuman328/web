@@ -1,10 +1,7 @@
-// ========================================
-// E-COMMERCE APPLICATION - CART MANAGEMENT
-// ========================================
 
-/**
- * Load and display cart items from localStorage
- */
+// E-COMMERCE APPLICATION - CART MANAGEMENT
+ // Load and display cart items from localStorage
+ 
 function displayCart() {
     const cartContainer = document.getElementById('cartItems');
     const cart = JSON.parse(localStorage.getItem('dtCart')) || [];
