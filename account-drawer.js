@@ -60,7 +60,7 @@ function openAddressSection() {
     return;
   }
 
-  // Toggle: if already visible, hide it
+  // Toggle if already visible, hide it
   if (addressSection.classList.contains('is-visible')) {
     addressSection.classList.remove('is-visible');
     if (drawer) {

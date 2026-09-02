@@ -3,9 +3,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// ========================================
+
 // FIREBASE CONFIGURATION
-// ========================================
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyASlqnPSK0zcv4rjcxGvVU4kOAgpZDRNPY",   
@@ -19,9 +19,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// ========================================
+
 // FORGOT PASSWORD HANDLER
-// ========================================
+
 
 window.handleForgotPassword = async function () {
   console.log("Forgot password clicked");
@@ -83,9 +83,8 @@ window.handleForgotPassword = async function () {
   }
 };
 
-// ========================================
+
 // PARTICLE ANIMATION BACKGROUND
-// ========================================
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');

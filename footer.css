@@ -1,6 +1,6 @@
-/* ─────────────────────────────────────────────
+/* 
    1. CSS VARIABLES
-───────────────────────────────────────────── */
+ */
 :root {
   /* Brand Colors */
   --color-bg: #1c1c1c;           /* Footer background */
@@ -20,9 +20,8 @@
 }
 
 
-/* ─────────────────────────────────────────────
-   2. RESET.
-───────────────────────────────────────────── */
+  /* 2. RESET.
+ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -48,9 +47,9 @@ ul {
 }
 
 
-/* ─────────────────────────────────────────────
+/* 
    3. .footer — MAIN WRAPPER
-───────────────────────────────────────────── */
+ */
 .footer {
   background: var(--color-bg);
   color: var(--color-text);
@@ -60,17 +59,16 @@ ul {
 }
 
 
-/* ─────────────────────────────────────────────
+/* 
    4. .footer__top — LOGO + TAGLINE
-───────────────────────────────────────────── */
+ */
 .footer__top {
   padding: var(--section-padding);
   padding-bottom: 2rem; /* Less bottom padding since divider follows */
 }
 
 /* ── Logo text ──
-   Uses your brand font. Change font-size,
-   letter-spacing, or color to match your brand. */
+    */
 .footer__logo {
   font-family: var(--font-brand);
   font-size: 1.8rem;        /* CUSTOMIZE: logo text size */
@@ -81,7 +79,7 @@ ul {
   margin-bottom: 0.5rem;
 }
 
-/* ── Gold dot accent after the logo ──
+/*  Gold dot accent after the logo
    Remove .footer__logo::after block if you don't want it */
 .footer__logo::after {
   content: '.';
@@ -97,9 +95,9 @@ ul {
 }
 
 
-/* ─────────────────────────────────────────────
+/* 
    5. .footer__divider — HORIZONTAL LINE
-───────────────────────────────────────────── */
+ */
 .footer__divider {
   border: none;
   border-top: 1px solid var(--color-border);
@@ -107,10 +105,10 @@ ul {
 }
 
 
-/* ─────────────────────────────────────────────
+/* 
    6. .footer__columns — HELP & CONTACT COLUMNS
    Grid of columns.
-───────────────────────────────────────────── */
+ */
 .footer__columns {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* CUSTOMIZE: change 2 to 3 or 4 for more columns */
@@ -120,7 +118,7 @@ ul {
   padding-bottom: 2.5rem;
 }
 
-/* ── Column heading (e.g. "Help", "Contact") ── */
+/*Column heading (e.g. "Help", "Contact")*/
 .footer__col-title {
   font-family: var(--font-body);
   font-size: 0.7rem;
@@ -131,7 +129,7 @@ ul {
   margin-bottom: 1.2rem;
 }
 
-/* ── Links inside each column ── */
+/* Links inside each column */
 .footer__col ul li {
   margin-bottom: 0.65rem;
 }
@@ -142,12 +140,12 @@ ul {
   transition: color 0.2s;        /* Smooth color change on hover */
 }
 
-/* /* ── Link hover effect ── */
+/* Link hover effect ── */
 .footer__col ul li a:hover {
   color: var(--color-accent);
 }
 
-/* ── Contact info (address, phone, email) ──
+/*  Contact info (address, phone, email)
    Same style as links but not clickable text */
 .footer__contact-item {
   display: flex;
@@ -155,7 +153,7 @@ ul {
   margin-bottom: 0.9rem;
 }
 
-/* ── Label above contact value (e.g. "Email") ── */
+/*  Label above contact value (e.g. "Email") */
 .footer__contact-label {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
@@ -164,7 +162,7 @@ ul {
   margin-bottom: 0.15rem;
 }
 
-/* ── Contact value (the actual email/phone/address) ── */
+/* Contact value (the actual email/phone/address) */
 .footer__contact-value {
   color: var(--color-text);
   font-size: 0.86rem;
@@ -176,9 +174,9 @@ ul {
 }
 
 
-/* ─────────────────────────────────────────────
+/* 
    7. .footer__bottom — COPYRIGHT BAR
-───────────────────────────────────────────── */
+ */
 .footer__bottom {
   border-top: 1px solid var(--color-border);
   padding: 1.2rem 6%;
@@ -189,14 +187,14 @@ ul {
   gap: 0.75rem;
 }
 
-/* ── Copyright text ── */
+/*  Copyright text  */
 .footer__copyright {
   font-size: 0.75rem;
   color: var(--color-muted);
   letter-spacing: 0.04em;
 }
 
-/* ── Legal links (Privacy, Terms) ── */
+/*  Legal links (Privacy, Terms)  */
 .footer__legal {
   display: flex;
   gap: 1.5rem;
@@ -213,9 +211,9 @@ ul {
 }
 
 
-/* ─────────────────────────────────────────────
+/* 
    8. RESPONSIVE — MOBILE
-───────────────────────────────────────────── */
+ */
 @media (max-width: 560px) {
   .footer__columns {
     grid-template-columns: 1fr; /* Stack columns on mobile */

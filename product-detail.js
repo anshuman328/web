@@ -1,6 +1,6 @@
-// ========================================
+
 // E-COMMERCE APPLICATION - PRODUCT DETAIL
-// ========================================
+
 // This file contains all the JavaScript logic for the Design Thread e-commerce website
 // Organized into logical sections for better understanding and maintenance
 
@@ -9,9 +9,9 @@ let selectedSize = null;
 let cartPopupHideTimer = null;
 
 
-// ========================================
+
 // 1. DATABASE - PRODUCT INFORMATION
-// ========================================
+
 // Contains all product data for men's and women's categories
 // Each product has: id, name, price, image, description, category, material, size, stock
 
@@ -328,9 +328,9 @@ function displayProductDetails(product) {
 }
 
 
-// ========================================
+
 // 4. CART FUNCTIONS - SHOPPING CART OPERATIONS
-// ========================================
+
 // Functions to handle shopping cart operations
 
 /**

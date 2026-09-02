@@ -59,9 +59,8 @@ window.handleLogout = function () {
 };
 
 
-// ========================================
+
 // PARTICLE ANIMATION BACKGROUND
-// ========================================
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
